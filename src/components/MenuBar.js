@@ -19,22 +19,26 @@ class MenuBar extends React.Component {
     this.props.changeActive(e.target.id)
   }
 
+  activeCheck = (value) => {
+    return this.props.active === value ? "item active" : "item"
+  }
+
   render() {
     return (
       <div className="ui four item menu">
-        <a className={this.props.active === "profile" ? "item active" : "item"} id="profile" onClick={this.handleClick}>
+        <a className={this.activeCheck("profile")} id="profile" onClick={this.handleClick}>
           <i className="user large icon" id="profile"/>
         </a>
 
-        <a className={this.props.active === "photo" ? "item active" : "item"} id="photo">
+        <a className={this.activeCheck("photo")} id="photo">
           <i className="photo large icon" id="photo" onClick={this.handleClick}/>
         </a>
 
-        <a className={this.props.active === "cocktail" ? "item active" : "item"} id="cocktail">
+        <a className={this.activeCheck("cocktail")} id="cocktail">
           <i className="cocktail large icon" id="cocktail" onClick={this.handleClick}/>
         </a>
 
-        <a className={this.props.active === "pokemon" ? "item active" : "item"} id="pokemon">
+        <a className={this.activeCheck("pokemon")} id="pokemon">
           <i className=" themeisle large icon" id="pokemon" onClick={this.handleClick}/>
         </a>
       </div>
